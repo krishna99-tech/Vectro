@@ -20,6 +20,7 @@
 # production
 /build
 
+teamworkspace.md
 # misc
 .DS_Store
 *.pem

@@ -16,7 +16,8 @@ const ReflectiveCard = ({
   grayscale = 1,
   glassDistortion = 0,
   className = '',
-  style = {}
+  style = {},
+  isActive = true
 }: any) => {
   const videoRef = useRef(null);
 
@@ -24,6 +25,7 @@ const ReflectiveCard = ({
     let stream: MediaStream | null = null;
 
     const startWebcam = async () => {
+      if (!isActive) return;
       if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
         console.warn('Webcam access is not supported in this environment (requires HTTPS or localhost).');
         return;
@@ -53,7 +55,7 @@ const ReflectiveCard = ({
         (stream as MediaStream).getTracks().forEach(track => track.stop());
       }
     };
-  }, []);
+  }, [isActive]);
 
   const baseFrequency = 0.03 / Math.max(0.1, noiseScale);
   const saturation = 1 - Math.max(0, Math.min(1, grayscale));
