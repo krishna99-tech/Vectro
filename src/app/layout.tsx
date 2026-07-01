@@ -20,8 +20,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vector Directory",
-  description: "A showcase of vector illustrations",
+  title: "Vector Workspace",
+  description: "A modern AI-powered Team Workspace",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Vector Workspace",
+  },
+};
+
+export const viewport = {
+  themeColor: "#3b82f6",
 };
 
 export default function RootLayout({
